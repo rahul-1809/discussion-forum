@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: header}"></head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1>Create a New Post</h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/posts}" th:object="${post}" method="post">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="companyName" class="form-label">Company Name:</label>
+                    <input type="text" class="form-control" id="companyName" th:field="*{companyName}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Your Experience:</label>
+                    <textarea class="form-control" id="content" th:field="*{content}" rows="10" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Post</button>
+                <a href="/" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="~{fragments :: scripts}"></div>
+</body>
+</html>
